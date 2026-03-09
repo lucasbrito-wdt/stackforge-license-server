@@ -7,7 +7,7 @@ const pool = new pg.Pool({
   connectionTimeoutMillis: 5_000,
 });
 
-export type QueryResult<T = Record<string, unknown>> = pg.QueryResult<T>;
+export type QueryResult<T extends pg.QueryResultRow = Record<string, unknown>> = pg.QueryResult<T>;
 
 export async function query<T extends pg.QueryResultRow = Record<string, unknown>>(
   text: string,
